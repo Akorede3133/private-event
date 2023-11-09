@@ -4,9 +4,16 @@
     <li><%= @event.name %><li>
     <li><%= @event.event_date %><li>
     <li><%= @event.location %><li>
-    <li><%= @event.creator.name %><li>
-    <li><%= button_to "I want in", attendances_path(id: @event),  method: :post %></li>
+    <li>Creator: <%= @event.creator.name %><li>
+  
 </ul>
+
+<% if @event.creator == current_user %>
+  <%=form_with scope: :attendance, url: attendances_path(id: @event) do |form| %>
+    <%=form.collection_select :attendee, User.order(:name), :id, :name %>
+    <%= form.submit 'Add attendee' %>
+  <% end %>
+<% end %>
 
 <h2>Attendees</h2>
 <ul>

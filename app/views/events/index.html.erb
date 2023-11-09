@@ -5,6 +5,7 @@
   <% @events.past.each do |event| %>
     <li><%= event.name %><li>
     <li><%= event.location %><li>
+    <li>Creator: <%= event.creator.name %><li>
     <%= link_to 'Details', event_path(event) %>
   <% end %>
 </ul>
@@ -15,6 +16,7 @@
   <% @events.future.each do |event| %>
     <li><%= event.name %><li>
     <li><%= event.location %><li>
+    <li>Creator: <%= event.creator.name %><li>
     <%= link_to 'Details', event_path(event) %>
   <% end %>
 </ul>
