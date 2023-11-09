@@ -9,3 +9,11 @@
     <li><%= event.creator.name %><li>
   <% end %>
 </ul>
+
+<h2>Attended events<h2>
+
+<ul>
+  <% current_user.attended_events.each do |event| %>
+  <li><%= event.name %></li>
+  <% end %>
+</ul>
