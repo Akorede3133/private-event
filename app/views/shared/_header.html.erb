@@ -1,4 +1,5 @@
 <header>
+ <%= link_to "Home", events_path %>
   <%= link_to "sign out", destroy_user_session_path, data: { turbo_method: :delete } %>
   <%= link_to "My events", user_path(current_user) %>
 </header>
