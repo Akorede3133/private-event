@@ -5,4 +5,12 @@
     <li><%= @event.event_date %><li>
     <li><%= @event.location %><li>
     <li><%= @event.creator.name %><li>
+    <li><%= button_to "I want in", attendances_path(id: @event),  method: :post %></li>
+</ul>
+
+<h2>Attendees</h2>
+<ul>
+  <% @event.attendees.each do |attendee| %>
+    <li><%= attendee.name %><li>
+  <% end %>
 </ul>
